@@ -1,0 +1,5 @@
+pip install celery redis fastapi mysql python-dotenv
+uvicorn main:app --reload
+redis-cli
+celery -A worker.celery worker  -l info --pool=solo
+celery -A worker.celery  beat --loglevel=info
